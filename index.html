@@ -13,11 +13,12 @@
         }
 
         body {
-            font-family: 'Arial Black', Arial, sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b00 100%);
-            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+            color: #ffffff;
             padding: 20px;
             min-height: 100vh;
+            line-height: 1.6;
         }
 
         .container {
@@ -27,72 +28,97 @@
 
         .header {
             text-align: center;
-            padding: 30px 20px;
-            background: linear-gradient(135deg, #ff4500 0%, #cc0000 100%);
-            border-radius: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.4);
+            padding: 50px 30px;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.95) 0%, rgba(185, 28, 28, 0.95) 100%);
+            border-radius: 24px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(220, 38, 38, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect fill="none" stroke="rgba(255,255,255,0.03)" x="0" y="0" width="100" height="100"/></svg>');
+            opacity: 0.5;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
         }
 
         .header h1 {
-            font-size: 3em;
+            font-size: 3.5em;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
         }
 
         .header p {
-            font-size: 1.2em;
-            font-weight: normal;
-            font-family: Arial, sans-serif;
+            font-size: 1.3em;
+            font-weight: 400;
+            opacity: 0.95;
+            letter-spacing: 1px;
         }
 
         .week-tabs {
             display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 20px;
+            margin-bottom: 40px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .tab-btn {
-            padding: 15px 30px;
-            background: #333;
-            border: 3px solid #ff4500;
-            color: #fff;
-            border-radius: 10px;
+            padding: 18px 36px;
+            background: rgba(38, 38, 38, 0.8);
+            border: 2px solid rgba(220, 38, 38, 0.4);
+            color: #ffffff;
+            border-radius: 16px;
             cursor: pointer;
-            font-weight: bold;
-            font-size: 1em;
-            transition: all 0.3s;
-            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            letter-spacing: 0.5px;
         }
 
         .tab-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(255, 69, 0, 0.5);
+            transform: translateY(-2px);
+            background: rgba(50, 50, 50, 0.9);
+            border-color: rgba(220, 38, 38, 0.7);
+            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.25);
         }
 
         .tab-btn.active {
-            background: linear-gradient(135deg, #ff4500 0%, #cc0000 100%);
-            border-color: #fff;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            border-color: #dc2626;
+            box-shadow: 0 8px 32px rgba(220, 38, 38, 0.4);
         }
 
         .day-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
         .day-card {
-            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-            border: 3px solid #ff4500;
-            border-radius: 15px;
-            padding: 25px;
-            transition: all 0.3s;
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.95) 0%, rgba(20, 20, 20, 0.95) 100%);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            backdrop-filter: blur(10px);
             overflow: hidden;
         }
 
@@ -101,136 +127,157 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #ff4500, #cc0000, #ff4500);
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #dc2626, #f97316, #dc2626);
+            opacity: 0.8;
         }
 
         .day-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 69, 0, 0.4);
-            border-color: #fff;
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 20px 50px rgba(220, 38, 38, 0.3);
+            border-color: rgba(220, 38, 38, 0.6);
         }
 
         .day-card.recovery {
-            border-color: #00ff88;
-            background: linear-gradient(135deg, #1a3a2a 0%, #0d1f15 100%);
+            border-color: rgba(16, 185, 129, 0.3);
+            background: linear-gradient(135deg, rgba(20, 40, 30, 0.95) 0%, rgba(15, 30, 22, 0.95) 100%);
         }
 
         .day-card.recovery::before {
-            background: linear-gradient(90deg, #00ff88, #00cc66, #00ff88);
+            background: linear-gradient(90deg, #10b981, #34d399, #10b981);
+        }
+
+        .day-card.recovery:hover {
+            border-color: rgba(16, 185, 129, 0.6);
+            box-shadow: 0 20px 50px rgba(16, 185, 129, 0.25);
         }
 
         .day-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #ff4500;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(220, 38, 38, 0.2);
         }
 
         .day-card.recovery .day-header {
-            border-bottom-color: #00ff88;
+            border-bottom-color: rgba(16, 185, 129, 0.2);
         }
 
         .day-info h2 {
             font-size: 2em;
-            color: #ff4500;
+            color: #dc2626;
+            font-weight: 800;
             text-transform: uppercase;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
         }
 
         .day-card.recovery .day-info h2 {
-            color: #00ff88;
+            color: #10b981;
         }
 
         .day-focus {
-            color: #aaa;
-            font-size: 1em;
-            font-weight: normal;
-            font-style: italic;
+            color: #a3a3a3;
+            font-size: 0.95em;
+            font-weight: 500;
+            letter-spacing: 0.3px;
         }
 
         .duration {
-            background: #ff4500;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
             padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 1.1em;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1em;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+            letter-spacing: 0.5px;
         }
 
         .day-card.recovery .duration {
-            background: #00ff88;
-            color: #000;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
         }
 
         .phase {
-            background: #1a1a1a;
-            border-left: 5px solid #ff4500;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
+            background: rgba(15, 15, 15, 0.6);
+            border-left: 3px solid #dc2626;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .phase:hover {
+            background: rgba(20, 20, 20, 0.8);
+            border-left-width: 5px;
         }
 
         .phase-title {
-            font-size: 1.3em;
-            color: #ff4500;
-            margin-bottom: 10px;
-            font-weight: bold;
+            font-size: 1.2em;
+            color: #dc2626;
+            margin-bottom: 16px;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .exercise {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border-left: 4px solid #ff4500;
-            transition: all 0.2s;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 16px;
+            margin: 12px 0;
+            border-radius: 10px;
+            border-left: 2px solid rgba(220, 38, 38, 0.4);
+            transition: all 0.3s ease;
         }
 
         .exercise:hover {
-            background: rgba(255, 69, 0, 0.1);
-            border-left-width: 8px;
-            padding-left: 16px;
+            background: rgba(220, 38, 38, 0.08);
+            border-left-width: 4px;
+            border-left-color: #dc2626;
+            transform: translateX(4px);
         }
 
         .exercise-name {
-            font-weight: bold;
-            color: #ff4500;
-            font-size: 1.1em;
-            margin-bottom: 5px;
+            font-weight: 700;
+            color: #f87171;
+            font-size: 1.05em;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
         }
 
         .exercise-details {
-            color: #ccc;
-            line-height: 1.6;
-            font-family: Arial, sans-serif;
+            color: #d4d4d4;
+            line-height: 1.7;
         }
 
         .exercise-explanation {
-            color: #999;
-            font-size: 0.9em;
-            font-style: italic;
-            margin-top: 5px;
-            padding-top: 5px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a3a3a3;
+            font-size: 0.92em;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            line-height: 1.6;
         }
 
         .info-box {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b00 100%);
-            border: 3px solid #ffa500;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.95) 0%, rgba(20, 20, 20, 0.95) 100%);
+            border: 1px solid rgba(251, 146, 60, 0.3);
+            border-radius: 20px;
+            padding: 32px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
         }
 
         .info-box h3 {
-            color: #ffa500;
+            color: #fb923c;
             font-size: 1.8em;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: 800;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
 
         .info-box ul {
@@ -239,62 +286,161 @@
         }
 
         .info-box li {
-            padding: 10px 0;
-            padding-left: 30px;
+            padding: 14px 0;
+            padding-left: 32px;
             position: relative;
-            line-height: 1.6;
-            color: #ccc;
+            line-height: 1.7;
+            color: #d4d4d4;
         }
 
         .info-box li:before {
             content: "🔥";
             position: absolute;
             left: 0;
+            font-size: 1.2em;
+        }
+
+        .info-box.green {
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .info-box.green h3 {
+            color: #10b981;
+        }
+
+        .info-box.green li:before {
+            content: "⚠️";
+        }
+
+        .info-box.purple {
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+
+        .info-box.purple h3 {
+            color: #a855f7;
+        }
+
+        .info-box.purple li:before {
+            content: "💡";
         }
 
         .progression-box {
-            background: linear-gradient(135deg, #1a0033 0%, #330066 100%);
-            border: 3px solid #9d00ff;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
+            background: linear-gradient(135deg, rgba(30, 20, 50, 0.95) 0%, rgba(20, 15, 40, 0.95) 100%);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 20px;
+            padding: 32px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
         }
 
         .progression-box h3 {
-            color: #9d00ff;
+            color: #a855f7;
             font-size: 1.8em;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: 800;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
 
         .week-progress {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
         }
 
         .week-item {
-            background: rgba(157, 0, 255, 0.1);
-            border: 2px solid #9d00ff;
-            padding: 15px;
-            border-radius: 10px;
+            background: rgba(168, 85, 247, 0.08);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            padding: 24px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .week-item:hover {
+            background: rgba(168, 85, 247, 0.12);
+            border-color: rgba(168, 85, 247, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(168, 85, 247, 0.2);
         }
 
         .week-item h4 {
-            color: #9d00ff;
-            margin-bottom: 10px;
-            font-size: 1.2em;
+            color: #c084fc;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+            font-weight: 700;
         }
 
         .week-item p {
-            color: #ccc;
-            line-height: 1.6;
+            color: #d4d4d4;
+            line-height: 1.7;
+            margin: 8px 0;
+        }
+
+        .principles-box {
+            margin-top: 25px;
+            padding: 24px;
+            background: rgba(168, 85, 247, 0.15);
+            border-radius: 12px;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .principles-box h4 {
+            color: #a855f7;
+            margin-bottom: 16px;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        .principles-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .principles-box li {
+            padding: 10px 0;
+            padding-left: 28px;
+            position: relative;
+            line-height: 1.7;
+            color: #d4d4d4;
+        }
+
+        .principles-box li:before {
+            content: "🔹";
+            position: absolute;
+            left: 0;
+        }
+
+        .final-box {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(220, 38, 38, 0.4);
+        }
+
+        .final-box h2 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .final-box p {
+            font-size: 1.25em;
+            line-height: 1.9;
+            font-weight: 400;
         }
 
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 2em;
+                font-size: 2.2em;
+            }
+
+            .header p {
+                font-size: 1em;
             }
 
             .day-grid {
@@ -304,6 +450,11 @@
             .week-progress {
                 grid-template-columns: 1fr;
             }
+
+            .tab-btn {
+                padding: 14px 24px;
+                font-size: 0.95em;
+            }
         }
     </style>
 </head>
@@ -311,8 +462,10 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🥊 RUTINA PELEADOR MMA</h1>
-            <p>Entrenamiento Natural - Nivel Avanzado - 6 Días/Semana</p>
+            <div class="header-content">
+                <h1>🥊 RUTINA PELEADOR MMA</h1>
+                <p>Entrenamiento Natural • Nivel Avanzado • 6 Días/Semana</p>
+            </div>
         </div>
 
         <div class="week-tabs">
@@ -348,14 +501,13 @@
                             <div class="exercise-name">Shadow Boxing Técnico</div>
                             <div class="exercise-details">5 rounds x 3 min (1 min descanso)</div>
                             <div class="exercise-explanation">Golpes básicos: jab, cross, hook, uppercut. Enfócate en la
-                                forma, no en velocidad. Mueve pies, gira cadera, protege mentón. Visualiza un oponente
-                                real.</div>
+                                forma, no en velocidad. Mueve pies, gira cadera, protege mentón.</div>
                         </div>
                         <div class="exercise">
                             <div class="exercise-name">Desplazamientos + Combos</div>
                             <div class="exercise-details">3 rounds x 2 min</div>
                             <div class="exercise-explanation">Avanza-retrocede, lateral izq-der + jab-cross-hook.
-                                Practica entrar y salir del rango. Trabajo de pies fundamental.</div>
+                                Practica entrar y salir del rango.</div>
                         </div>
                     </div>
 
@@ -369,8 +521,7 @@
                                 • Mountain climbers: 40 seg<br>
                                 • V-ups: 15 rep
                             </div>
-                            <div class="exercise-explanation">Sin descanso entre ejercicios. 1 min entre rondas. El core
-                                es tu centro de poder para golpes.</div>
+                            <div class="exercise-explanation">Sin descanso entre ejercicios. 1 min entre rondas.</div>
                         </div>
                     </div>
                 </div>
@@ -401,7 +552,7 @@
                             <div class="exercise-name">Sprints en Colina</div>
                             <div class="exercise-details">8-10 repeticiones (20-30 seg sprint, camina bajando)</div>
                             <div class="exercise-explanation">Busca una colina de 30-50m. Sprint al 90% de máxima
-                                velocidad. Desarrolla potencia de piernas y explosividad tipo takedown.</div>
+                                velocidad. Desarrolla potencia de piernas y explosividad.</div>
                         </div>
                         <div class="exercise">
                             <div class="exercise-name">Burpees Combate</div>
@@ -420,10 +571,10 @@
                                 • Sentadillas pistol asistidas: 8-10 cada pierna<br>
                                 • Fondos en piedra/tronco: 12-15 rep<br>
                                 • Zancadas saltadas: 10 cada pierna<br>
-                                • Pull-ups en rama: 6-10 rep (o dominadas australianas)
+                                • Pull-ups en rama: 6-10 rep
                             </div>
-                            <div class="exercise-explanation">Mínimo descanso entre ejercicios. 2 min entre rondas. Usa
-                                piedras o ramas como equipamiento.</div>
+                            <div class="exercise-explanation">Mínimo descanso entre ejercicios. 2 min entre rondas.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -444,7 +595,7 @@
                             <div class="exercise-name">Fartlek (juego de velocidades)</div>
                             <div class="exercise-details">30 minutos alternando ritmos</div>
                             <div class="exercise-explanation">Alterna: 3 min ritmo cómodo + 1 min fuerte + 2 min suave +
-                                30 seg sprint. Repite ciclo. Mejora tu capacidad de cambiar ritmo en combate.</div>
+                                30 seg sprint. Repite ciclo.</div>
                         </div>
                     </div>
 
@@ -458,8 +609,7 @@
                                 • 45 seg: Burpees + jab-cross<br>
                                 • 45 seg: Mountain climbers explosivos<br>
                                 • 45 seg: Shadow boxing intenso<br>
-                                • 45 seg: Sentadillas jump<br>
-                                Simula la fatiga de un combate real.
+                                • 45 seg: Sentadillas jump
                             </div>
                         </div>
                     </div>
@@ -470,8 +620,7 @@
                             <div class="exercise-name">Fortalecimiento de Cuello</div>
                             <div class="exercise-details">3 series cada dirección</div>
                             <div class="exercise-explanation">Resistencia manual: presiona cabeza con mano (adelante,
-                                atrás, laterales) y resiste 15-20 seg. Fundamental para absorber golpes y prevenir
-                                lesiones.</div>
+                                atrás, laterales) y resiste 15-20 seg.</div>
                         </div>
                     </div>
                 </div>
@@ -492,7 +641,7 @@
                             <div class="exercise-name">Trote con Shadow Boxing</div>
                             <div class="exercise-details">20 min (cada 2 min, para y shadow box 30 seg)</div>
                             <div class="exercise-explanation">Mantén ritmo constante. Al parar: stance correcto, 3-4
-                                combos técnicos, vuelve a trotar. Simula recuperación activa entre rounds.</div>
+                                combos técnicos, vuelve a trotar.</div>
                         </div>
                     </div>
 
@@ -506,8 +655,7 @@
                                 Round 5-6: Combos de 3 golpes<br>
                                 Round 7-8: Defensa + contraataque
                             </div>
-                            <div class="exercise-explanation">Calidad sobre cantidad. Imagina un oponente. Practica
-                                esquivas, bloqueos, deslizamientos.</div>
+                            <div class="exercise-explanation">Calidad sobre cantidad. Imagina un oponente.</div>
                         </div>
                     </div>
 
@@ -520,7 +668,6 @@
                                 • Cossack squats: 10 cada lado<br>
                                 • Rotaciones de cadera: 20 círculos<br>
                                 • Puente de glúteos: 15 rep<br>
-                                • Estiramiento dinámico de piernas<br>
                                 • Yoga flow: perro-cobra-guerrero
                             </div>
                         </div>
@@ -543,7 +690,7 @@
                             <div class="exercise-name">Trote Largo en Terreno Montañoso</div>
                             <div class="exercise-details">35-45 min ritmo moderado-fuerte</div>
                             <div class="exercise-explanation">Busca senderos con desnivel. Ritmo donde te cueste hablar
-                                pero no estés al máximo. Construye tu motor aeróbico.</div>
+                                pero no estés al máximo.</div>
                         </div>
                     </div>
 
@@ -559,8 +706,7 @@
                                 • 20 Abdominales V-up<br>
                                 • 1 min Shadow boxing intenso
                             </div>
-                            <div class="exercise-explanation">Completa los 5 rounds lo más rápido posible. Descansa solo
-                                cuando sea absolutamente necesario. Este circuito quema grasa brutal.</div>
+                            <div class="exercise-explanation">Completa los 5 rounds lo más rápido posible.</div>
                         </div>
                     </div>
 
@@ -574,8 +720,6 @@
                                 • Bird dog: 15 rep cada lado<br>
                                 • Hollow body hold: 30 seg
                             </div>
-                            <div class="exercise-explanation">Enfoque en estabilidad. Esencial para transferir fuerza de
-                                piernas a golpes y resistir derribos.</div>
                         </div>
                     </div>
                 </div>
@@ -606,12 +750,11 @@
                                 Cada round combina todo:<br>
                                 • 1 min: Shadow boxing técnico<br>
                                 • 1 min: Sprints cortos + burpees<br>
-                                • 1 min: Trabajo de suelo (sprawl, shrimp, technical stand-up)<br>
-                                • 1 min: Explosivos (sentadillas jump, rodillas)<br>
-                                • 1 min: Shadow boxing al máximo
+                                • 1 min: Trabajo de suelo<br>
+                                • 1 min: Explosivos<br>
+                                • 1 min: Shadow boxing máximo
                             </div>
-                            <div class="exercise-explanation">Este es tu test semanal. Simula un combate completo.
-                                Mantén la técnica incluso fatigado.</div>
+                            <div class="exercise-explanation">Este es tu test semanal. Simula un combate completo.</div>
                         </div>
                     </div>
 
@@ -621,7 +764,7 @@
                             <div class="exercise-name">100 Burpees por Tiempo</div>
                             <div class="exercise-details">Completa 100 burpees lo más rápido posible</div>
                             <div class="exercise-explanation">Descansa cuando necesites, pero termínalos. Tiempo
-                                objetivo: menos de 15 min. Esto desarrolla resiliencia mental.</div>
+                                objetivo: menos de 15 min.</div>
                         </div>
                         <div class="exercise">
                             <div class="exercise-name">Core Final (1 ronda máxima)</div>
@@ -646,7 +789,7 @@
                             <div class="exercise-name">Caminata Larga en Naturaleza</div>
                             <div class="exercise-details">30-45 min ritmo muy tranquilo</div>
                             <div class="exercise-explanation">Busca terreno variado pero sin exigencia. Respira
-                                profundo, conecta con la naturaleza. Tu cuerpo crece en el descanso.</div>
+                                profundo, conecta con la naturaleza.</div>
                         </div>
                         <div class="exercise">
                             <div class="exercise-name">Yoga Flow / Estiramiento Profundo</div>
@@ -664,7 +807,7 @@
                             <div class="exercise-name">Visualización Mental</div>
                             <div class="exercise-details">10 min</div>
                             <div class="exercise-explanation">Siéntate en silencio. Visualiza tus objetivos, tu cuerpo
-                                transformado, tus combos perfectos. La mente entrena tanto como el cuerpo.</div>
+                                transformado, tus combos perfectos.</div>
                         </div>
                     </div>
                 </div>
@@ -675,6 +818,14 @@
             <div class="progression-box">
                 <h3>📈 PROGRESIÓN MENSUAL INTELIGENTE</h3>
                 <div class="week-progress">
+                    <div class="week-item">
+                        <h4>🔹 Semanas 1-2</h4>
+                        <p><strong>Volumen:</strong> Rango bajo de repeticiones.</p>
+                        <p><strong>Intensidad:</strong> 70-80% de tu máximo.</p>
+                        <p><strong>Enfoque:</strong> Perfeccionar técnica y adaptación.</p>
+                        <p><strong>Trote:</strong> Rango bajo (30 min en vez de 40).</p>
+                    </div>
+
                     <div class="week-item">
                         <h4>🔹 Semanas 3-4</h4>
                         <p><strong>Volumen:</strong> Aumenta repeticiones al rango medio-alto.</p>
@@ -703,17 +854,17 @@
                     </div>
                 </div>
 
-                <div style="margin-top: 25px; padding: 20px; background: rgba(157, 0, 255, 0.2); border-radius: 10px;">
-                    <h4 style="color: #9d00ff; margin-bottom: 10px;">⚡ Principios de Progresión</h4>
-                    <ul style="color: #ccc; line-height: 1.8; list-style: none; padding-left: 20px;">
-                        <li>🔹 <strong>Sobrecarga progresiva:</strong> Cada semana debe ser ligeramente más dura que la
+                <div class="principles-box">
+                    <h4>⚡ Principios de Progresión</h4>
+                    <ul>
+                        <li><strong>Sobrecarga progresiva:</strong> Cada semana debe ser ligeramente más dura que la
                             anterior.</li>
-                        <li>🔹 <strong>Escucha tu cuerpo:</strong> Si sientes dolor articular (no muscular), reduce
+                        <li><strong>Escucha tu cuerpo:</strong> Si sientes dolor articular (no muscular), reduce
                             intensidad 1 día.</li>
-                        <li>🔹 <strong>Nutrición:</strong> Come suficiente proteína (2g por kg de peso) para
+                        <li><strong>Nutrición:</strong> Come suficiente proteína (2g por kg de peso) para
                             recuperación.</li>
-                        <li>🔹 <strong>Sueño:</strong> Mínimo 7-8 horas. Aquí es donde te haces más fuerte.</li>
-                        <li>🔹 <strong>Deload cada 4-6 semanas:</strong> Una semana al 60-70% de intensidad para
+                        <li><strong>Sueño:</strong> Mínimo 7-8 horas. Aquí es donde te haces más fuerte.</li>
+                        <li><strong>Deload cada 4-6 semanas:</strong> Una semana al 60-70% de intensidad para
                             recuperar completamente.</li>
                     </ul>
                 </div>
@@ -722,9 +873,8 @@
             <div class="info-box">
                 <h3>🎯 VARIABLES CLAVE PARA QUEMAR GRASA</h3>
                 <ul>
-                    <li><strong>El trote es tu arma secreta:</strong> 150-200 min semanales de cardio constante (suma
-                        todos tus trotes). Esto crea el déficit calórico necesario para perder grasa sin perder músculo.
-                    </li>
+                    <li><strong>El trote es tu arma secreta:</strong> 150-200 min semanales de cardio constante. Esto
+                        crea el déficit calórico necesario para perder grasa sin perder músculo.</li>
                     <li><strong>HIIT para metabolismo:</strong> Los días de intervalos (miércoles, sábado) mantienen tu
                         metabolismo elevado hasta 24h después del entrenamiento.</li>
                     <li><strong>Fuerza para preservar músculo:</strong> Los circuitos de fuerza (martes, viernes) evitan
@@ -772,8 +922,8 @@
             </ul>
         </div>
 
-        <div class="info-box" style="border-color: #00ff88;">
-            <h3 style="color: #00ff88;">⚠️ SEÑALES DE SOBREENTRENAMIENTO - CUÁNDO PARAR</h3>
+        <div class="info-box green">
+            <h3>⚠️ SEÑALES DE SOBREENTRENAMIENTO - CUÁNDO PARAR</h3>
             <ul>
                 <li><strong>Pulso en reposo elevado:</strong> Si al despertar tu frecuencia cardíaca está 10+ latidos
                     sobre tu normal, necesitas descanso extra.</li>
@@ -790,24 +940,21 @@
             </ul>
         </div>
 
-        <div class="info-box"
-            style="border-color: #ffa500; background: linear-gradient(135deg, #2d1b00 0%, #1a1a1a 100%);">
+        <div class="info-box purple">
             <h3>💡 CONSEJOS PRO DE PELEADORES REALES</h3>
             <ul>
                 <li><strong>"Entrena cerebro primero, músculos después":</strong> En fatiga extrema, la técnica se
-                    desmorona. Practica movimientos perfectos incluso cuando estés destruido. Eso es lo que separa
-                    guerreros de aficionados.</li>
+                    desmorona. Practica movimientos perfectos incluso cuando estés destruido.</li>
                 <li><strong>"El cardio no miente":</strong> Puedes fingir ser fuerte, pero no puedes fingir tener
-                    resistencia. El trote constante construye el motor que necesitas para rounds largos.</li>
+                    resistencia. El trote constante construye el motor que necesitas.</li>
                 <li><strong>"Come como atleta, no como peleador muerto de hambre":</strong> Déficit extremo = perder
-                    músculo y sentirte miserable. Come suficiente para recuperar pero menos para adelgazar. Paciencia.
-                </li>
+                    músculo y sentirte miserable. Come suficiente para recuperar pero menos para adelgazar.</li>
                 <li><strong>"La consistencia vence al talento":</strong> Mejor 6 meses de entrenamientos del 85% que 2
                     meses al 100% y abandonar. Este es un maratón.</li>
                 <li><strong>"Shadow boxing con intención":</strong> No solo muevas brazos. Visualiza oponente real,
-                    reacciona a sus golpes imaginarios, mueve pies constantemente. Calidad sobre cantidad.</li>
+                    reacciona a sus golpes imaginarios, mueve pies constantemente.</li>
                 <li><strong>"El cuello salva cerebros":</strong> Peleadores pro entrenan cuello religiosamente. Absorbes
-                    mejor impactos y previenes conmociones. No lo ignores.</li>
+                    mejor impactos y previenes conmociones.</li>
                 <li><strong>"Respira por nariz en trote":</strong> Si no puedes, vas muy rápido. Respiración nasal
                     mejora eficiencia aeróbica y mantiene sistema nervioso calmado.</li>
                 <li><strong>"Los burpees son el gran ecualizador":</strong> Todos los odian. Todos los necesitan.
@@ -815,10 +962,9 @@
             </ul>
         </div>
 
-        <div
-            style="background: linear-gradient(135deg, #ff4500 0%, #cc0000 100%); padding: 30px; border-radius: 15px; margin-top: 30px; text-align: center;">
-            <h2 style="font-size: 2.5em; margin-bottom: 15px; text-transform: uppercase;">⚔️ EL CÓDIGO DEL GUERRERO</h2>
-            <p style="font-size: 1.3em; line-height: 1.8; font-family: Arial, sans-serif;">
+        <div class="final-box">
+            <h2>⚔️ EL CÓDIGO DEL GUERRERO</h2>
+            <p>
                 "No se trata de ser el más talentoso.<br>
                 Se trata de ser el que nunca se rinde.<br>
                 El que entrena cuando nadie lo ve.<br>
@@ -849,12 +995,4 @@
     </script>
 </body>
 
-</html>🔹 Semanas 1-2</h4>
-<p><strong>Volumen:</strong> Completa todos los ejercicios en el rango bajo de repeticiones.</p>
-<p><strong>Intensidad:</strong> 70-80% de tu máximo esfuerzo.</p>
-<p><strong>Enfoque:</strong> Perfeccionar técnica y adaptación al volumen.</p>
-<p><strong>Trote:</strong> Rango bajo de minutos (30 min en vez de 40).</p>
-</div>
-
-<div class="week-item">
-    <h4>
+</html>
